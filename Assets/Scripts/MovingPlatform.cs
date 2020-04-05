@@ -4,32 +4,59 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public Transform start;
-    public Transform end;
     public float speed;
+    public Transform[] transformPoints;
 
-    private float current;  // от 0.0 до 1.0
-    private float dir;
+    private bool forwardDir = true;
+    private int currentPoint;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        current = 0.0f;
-        dir = 1.0f;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        current += dir * speed * Time.deltaTime;
-        if (current > 1.0f) {
-            current = 1.0f;
-            dir = -1.0f;
-        } else if (current < 0.0f) {
-            current = 0.0f;
-            dir = 1.0f;
-        }
+        transform.position = Vector2.MoveTowards(transform.position, transformPoints[currentPoint].transform.position,
+            speed * Time.deltaTime);
+        CheckPoint();
+    }
 
-        transform.position = Vector3.Lerp(start.position, end.position, current);
+    private void CheckPoint()
+    {
+        if (Vector2.Distance(transform.position, transformPoints[currentPoint].transform.position) < 0.1f)
+        {
+            int nextPoint = forwardDir ? currentPoint + 1 : currentPoint - 1;
+
+            if (forwardDir)
+            {
+                Forward(nextPoint);
+            }
+            else
+            {
+                Back(nextPoint);
+            }
+        }
+    }
+
+    private void Forward(int nextPoint)
+    {
+        if (nextPoint == transformPoints.Length)
+        {
+            forwardDir = false;
+            currentPoint--;
+        }
+        else
+        {
+            currentPoint++;
+        }
+    }
+
+    private void Back(int nextPoint)
+    {
+        if (nextPoint < 0)
+        {
+            forwardDir = true;
+            currentPoint++;
+        }
+        else
+        {
+            currentPoint--;
+        }
     }
 }
