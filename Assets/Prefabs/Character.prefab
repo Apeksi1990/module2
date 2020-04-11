@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9106180626583752972}
   - component: {fileID: 9106180626583752975}
   - component: {fileID: 9106180626583752974}
+  - component: {fileID: 6984811947672657966}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -92,11 +93,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3547bb116a56d8142ada2051f4a1bcc1, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Visual: {fileID: 9106180627566977654}
   MoveForce: 50
   JumpForce: 400
+--- !u!114 &6984811947672657966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106180626583752970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942dd531ddc50c146895e12038a23f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9106180626831145901
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,8 +178,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d403a6940ed5a2d4b9e99dce0044ba83, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   InTrigger: 0
 --- !u!1 &9106180627566977655
 GameObject:
@@ -266,7 +279,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0

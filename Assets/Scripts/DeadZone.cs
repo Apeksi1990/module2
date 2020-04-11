@@ -13,7 +13,7 @@ public class DeadZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             GameOver(other.gameObject);
         }
@@ -24,6 +24,8 @@ public class DeadZone : MonoBehaviour
         Rigidbody2D rigidbody2D = player.transform.GetComponent<Rigidbody2D>();
         rigidbody2D.Sleep();
 
+        CharacterInput characterInput = player.GetComponent<CharacterInput>();
+        characterInput.enabled = false;
         buttonPanel.SetActive(false);
         buttonResetLevel.SetActive(true);
         gameOverText.SetActive(true);

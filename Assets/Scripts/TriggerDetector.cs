@@ -9,7 +9,7 @@ public class TriggerDetector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         InTrigger = true;
-        if (collision.transform.tag == "Platform")
+        if (collision.CompareTag("Platform"))
         {
             transform.parent.parent = collision.transform;
         }
@@ -18,7 +18,7 @@ public class TriggerDetector : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         InTrigger = false;
-        if (collision.transform.tag == "Platform")
+        if (collision.CompareTag("Platform"))
         {
             transform.parent.parent = null;
         }

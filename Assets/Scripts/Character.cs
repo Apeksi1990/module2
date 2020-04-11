@@ -14,6 +14,8 @@ public class Character : MonoBehaviour
     Animator animator;
     float visualDirection;
 
+    private static readonly int Speed = Animator.StringToHash("speed");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,6 @@ public class Character : MonoBehaviour
         scale.x = visualDirection;
         Visual.localScale = scale;
 
-        animator.SetFloat("speed", Mathf.Abs(vel));
+        animator.SetFloat(Speed, Mathf.Abs(vel));
     }
 }
